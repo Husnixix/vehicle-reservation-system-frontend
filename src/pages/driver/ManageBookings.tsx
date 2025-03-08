@@ -118,7 +118,7 @@ const ManageBookingsForDriver = () => {
           <TableHead>Customer</TableHead>
           <TableHead>Vehicle</TableHead>
           <TableHead>Cancel</TableHead>
-          <TableHead>Start</TableHead>
+          <TableHead>Accept</TableHead>
           <TableHead>Complete</TableHead>
         </TableRow>
       </TableHeader>
