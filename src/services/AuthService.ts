@@ -1,7 +1,6 @@
 import { API_URL } from "@/types/constant";
 import { IUser } from "@/types/user";
 
-// const API_URL = "http://localhost:8080/MegaCabService/users";
 
 export const AuthService = {
   login: async (email: string, password: string): Promise<{message: string, data: IUser}> => {

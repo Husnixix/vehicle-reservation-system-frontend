@@ -3,8 +3,6 @@ import { API_URL, ResponseProps } from "@/types/constant";
 import { IDriver } from "@/types/driver";
 
 
-// const API_URL = "http://localhost:8080/MegaCabService/manager";
-
 export const DriverService = {
     getAvailableDrivers: async (): Promise<IDriver[]> => {
         try {

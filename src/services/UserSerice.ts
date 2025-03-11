@@ -1,7 +1,6 @@
 import { IUser } from "@/types/user";
 import { API_URL, ResponseProps } from "@/types/constant";
 
-// const API_URL = "http://localhost:8080/MegaCabService/users";
 
 export const UserService = {
     getUsers: async (): Promise<IUser[]> => {
