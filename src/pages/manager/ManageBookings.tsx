@@ -62,10 +62,10 @@ const ManageBookingsForManager = () => {
     try {
       console.log(bookingId, driverId, vehicleId);
       const response = await cancelBooking(bookingId, driverId, vehicleId);
-      if (response.ok) {
-        Toast.error("Booking accepted");
+      if (response.status == 200) {
+        Toast.success("Booking cancelled");
       } else {
-        Toast.error("Failed to accept the booking");
+        Toast.error("Failed to cancel the booking");
       }
     } catch (error) {
       Toast.error("An error occurred while accepting the booking");
@@ -82,10 +82,10 @@ const ManageBookingsForManager = () => {
         console.log(response.data);
         setSelectedBooking(response.data);
       } else {
-        alert("Failed to accept the booking");
+        Toast.error("Failed to fetch customer info");
       }
     } catch (error) {
-      alert("An error occurred while accepting the booking");
+      Toast.error("An error occurred while accepting the booking");
       console.error(error);
     }
   };
