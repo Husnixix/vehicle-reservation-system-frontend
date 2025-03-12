@@ -59,10 +59,10 @@ const ManageBookingsForDriver = () => {
   const handleAcceptBooking = async (bookingId: number): Promise<void> => {
     try {
       const response = await acceptBooking(bookingId);
-      if (response.ok) {
-        Toast.success("Booking Accepted")
+      if (response.status == 200) {
+        Toast.success("Booking Accepted");
       } else {
-        Toast.success("Failed to accept the booking")
+        Toast.success("Failed to accept the booking");
       }
     } catch (error) {
         Toast.error("An error occurred while accepting the booking")
@@ -78,10 +78,10 @@ const ManageBookingsForDriver = () => {
     try {
       console.log(bookingId, driverId, vehicleId);
       const response = await cancelBooking(bookingId, driverId, vehicleId);
-      if (response.ok) {
-        Toast.success("Booking Cancelled")
+      if (response.status == 200) {
+        Toast.success("Booking Cancelled");
       } else {
-        Toast.error("Failed to cancel the booking")
+        Toast.error("Failed to cancel the booking");
       }
     } catch (error) {
         Toast.error("An error occurred while accepting the booking")
@@ -96,10 +96,10 @@ const ManageBookingsForDriver = () => {
   ): Promise<void> => {
     try {
       const response = await completeBooking(bookingId, driverId, vehicleId);
-      if (response.ok) {
-        Toast.success("Booking completed")
+      if (response.status == 200) {
+        Toast.success("Booking completed");
       } else {
-        Toast.error("Failed to complete the booking")
+        Toast.error("Failed to complete the booking");
       }
     } catch (error) {
         Toast.error("An error occurred while accepting the booking")
