@@ -15,6 +15,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
 import { Check, Play, X } from "lucide-react";
 import { DriverContext } from "@/contexts/DriverContext";
+import Toast from "@/lib/toast";
 
 const ManageBookingsForDriver = () => {
   const authContext = useContext(AuthContext);
@@ -58,14 +59,14 @@ const ManageBookingsForDriver = () => {
   const handleAcceptBooking = async (bookingId: number): Promise<void> => {
     try {
       const response = await acceptBooking(bookingId);
-      if (response.ok) {
-        alert(`Booking accepted for Driver ID: ${bookingId}`);
+      if (response.status == 200) {
+        Toast.success("Booking Accepted");
       } else {
-        alert("Failed to accept the booking");
+        Toast.success("Failed to accept the booking");
       }
     } catch (error) {
-      alert("An error occurred while accepting the booking");
-      console.error(error);
+        Toast.error("An error occurred while accepting the booking")
+        console.error(error);
     }
   };
 
@@ -77,13 +78,13 @@ const ManageBookingsForDriver = () => {
     try {
       console.log(bookingId, driverId, vehicleId);
       const response = await cancelBooking(bookingId, driverId, vehicleId);
-      if (response.ok) {
-        alert(`Booking accepted for Driver ID: ${bookingId}`);
+      if (response.status == 200) {
+        Toast.success("Booking Cancelled");
       } else {
-        alert("Failed to accept the booking");
+        Toast.error("Failed to cancel the booking");
       }
     } catch (error) {
-      alert("An error occurred while accepting the booking");
+        Toast.error("An error occurred while accepting the booking")
       console.error(error);
     }
   };
@@ -95,14 +96,14 @@ const ManageBookingsForDriver = () => {
   ): Promise<void> => {
     try {
       const response = await completeBooking(bookingId, driverId, vehicleId);
-      if (response.ok) {
-        alert(`Booking accepted for Driver ID: ${bookingId}`);
+      if (response.status == 200) {
+        Toast.success("Booking completed");
       } else {
-        alert("Failed to accept the booking");
+        Toast.error("Failed to complete the booking");
       }
     } catch (error) {
-      alert("An error occurred while accepting the booking");
-      console.error(error);
+        Toast.error("An error occurred while accepting the booking")
+        console.error(error);
     }
   };
 

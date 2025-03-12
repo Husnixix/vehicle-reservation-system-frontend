@@ -1,8 +1,6 @@
 import { IBooking, IBookingInfo } from "@/types/booking";
 import { API_URL, ResponseProps } from "@/types/constant";
 
-// const API_URL = "http://localhost:8080/MegaCabService/bookings";
-
 
 export const BookingService = {
     getBookings: async (): Promise<ResponseProps<IBookingInfo[]>> => {
